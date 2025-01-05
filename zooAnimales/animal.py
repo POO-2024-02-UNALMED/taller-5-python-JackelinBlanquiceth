@@ -1,4 +1,3 @@
-from gestion.zoologico import Zoologico
 class Animal:
     _totalAnimales = {"Mammiferos":0, "Aves":0, "Reptiles":0, "Peces":0, "Anfibios":0}
     def __init__(self, nombre, edad, habitat, genero, zona):
@@ -9,7 +8,7 @@ class Animal:
         self._zona = zona
     @classmethod
     def totalPorTipo(cls):
-        return cls.totalAnimales
+        return cls._totalAnimales
     
     def movimiento(self):
         return "desplazarse"
@@ -44,10 +43,10 @@ class Animal:
         self._zona = zona
 
     def __str__(self):
-        if self._zona == None:
-          print(f"Mi nombre es {self.getNombre()}, tengo una edad de {self.getEdad()} /
+        if self._zona is None:
+           return (f"Mi nombre es {self.getNombre()}, tengo una edad de {self.getEdad()} \
                 , habito en {self.getHabitat()} y mi género es {self.getGenero()}")
         else:
-            print(f"Mi nombre es {self.getNombre()}, tengo una edad de {self.getEdad()} /
-                , habito en {self.getHabitat()} y mi género es {self.getGenero()}, /
-                la zona en la que me ubico es {self.getZona()}, en el {Zoologico.getNombre()}.")
+            return (f"Mi nombre es {self.getNombre()}, tengo una edad de {self.getEdad()} \
+                , habito en {self.getHabitat()} y mi género es {self.getGenero()}, \
+                la zona en la que me ubico es {self.getZona()}, en el {self._zona.getNombre()}.")
