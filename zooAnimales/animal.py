@@ -8,9 +8,9 @@ class Animal:
         self._zona = zona
 
     @classmethod
-    def totalAnimales(self, clave):
-        if clave in self._totalAnimales:
-            self._totalAnimales[clave] += 1    
+    def totalAnimales(cls, clave):
+        if clave in cls._totalAnimales:
+            cls._totalAnimales[clave] += 1    
     @classmethod
     def totalPorTipo(cls):
         return cls._totalAnimales
