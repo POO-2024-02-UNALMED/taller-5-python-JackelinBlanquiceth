@@ -10,8 +10,9 @@ class Ave(Animal):
     def getListado(self):
        return self._listado
     
-    def setListado(self, Ave):
-       self._listado.append(Ave)
+    def setListado(self, ave):
+       if isinstance(ave, Ave):
+          self._listado.append(ave)
 
     def getColorPlumas(self):
        return self._colorPlumas
@@ -23,22 +24,16 @@ class Ave(Animal):
        return (Ave.halcones + Ave.aguilas)
     
     def crearHalcon(self, nombre, edad, genero, zona):
-       self.setColorPlumas("café glorioso")
-       self.setHabitat("montañas")
-       self.setNombre(nombre)
-       self.setEdad(edad)
-       self.setGenero(genero)
-       self.setZona(zona)
+       halcon = Ave(nombre, edad, "montañas", genero, zona, "café glorioso")
        Ave.halcones += 1
+       Animal.totalAnimales("Aves")
+       return halcon
 
     def crearAguila(self, nombre, edad, genero, zona):
-       self.setColorPlumas("blanco y amarillo")
-       self.setHabitat("montañas")
-       self.setNombre(nombre)
-       self.setEdad(edad)
-       self.setGenero(genero)
-       self.setZona(zona)
+       aguila = Ave(nombre, edad, "montanas", genero, zona, "blanco y amarillo")
        Ave.aguilas += 1
+       Animal.totalAnimales("Aves")
+       return aguila
        
     def movimiento(self):
         return "volar"

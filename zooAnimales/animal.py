@@ -1,11 +1,16 @@
 class Animal:
-    _totalAnimales = {"Mammiferos":0, "Aves":0, "Reptiles":0, "Peces":0, "Anfibios":0}
+    _totalAnimales = {"Mamiferos":0, "Aves":0, "Reptiles":0, "Peces":0, "Anfibios":0}
     def __init__(self, nombre, edad, habitat, genero, zona):
         self._nombre = nombre
         self._edad = edad
         self._habitat = habitat
         self._genero = genero
         self._zona = zona
+
+    @classmethod
+    def totalAnimales(self, clave):
+        if clave in self._totalAnimales:
+            self._totalAnimales[clave] += 1    
     @classmethod
     def totalPorTipo(cls):
         return cls._totalAnimales

@@ -11,8 +11,9 @@ class Mamifero(Animal):
     def getListado(self):
        return self._listado
     
-    def setListado(self, Mamifero):
-       self._listado.append(Mamifero)
+    def setListado(self, mamifero):
+       if isinstance(mamifero, Mamifero):
+          self._listado.append(mamifero)
 
     def getPelaje(self):
        return self._pelaje
@@ -30,22 +31,14 @@ class Mamifero(Animal):
        return (Mamifero.caballos + Mamifero.leones)
     
     def crearCaballo(self, nombre, edad, genero, zona):
-       self.setPelaje(True)
-       self.setPatas(4)
-       self.setHabitat("pradera")
-       self.setNombre(nombre)
-       self.setEdad(edad)
-       self.setGenero(genero)
-       self.setZona(zona)
+       caballo = Mamifero(nombre, edad, "pradera", genero, zona, True, 4)
        Mamifero.caballos += 1
+       Animal.totalAnimales("Mamiferos")
+       return caballo
 
     def crearLeon(self, nombre, edad, genero, zona):
-       self.setPelaje(True)
-       self.setPatas(4)
-       self.setHabitat("selva")
-       self.setNombre(nombre)
-       self.setEdad(edad)
-       self.setGenero(genero)
-       self.setZona(zona)
+       leon = Mamifero(nombre, edad, "selva", genero, zona, True, 4)
        Mamifero.leones += 1
+       Animal.totalAnimales("Mamiferos")
+       return leon
        

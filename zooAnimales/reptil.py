@@ -11,8 +11,9 @@ class Reptil(Animal):
     def getListado(self):
        return self._listado
     
-    def setListado(self, Reptil):
-       self._listado.append(Reptil)
+    def setListado(self, reptil):
+       if isinstance(reptil, Reptil):
+            self._listado.append(reptil) 
 
     def getColorEscamas(self):
        return self._colorEscamas
@@ -30,24 +31,16 @@ class Reptil(Animal):
        return (Reptil.iguanas + Reptil.serpientes)
     
     def crearIguana(self, nombre, edad, genero, zona):
-       self.setColorEscamas("verde")
-       self.setLargoCola(3)
-       self.setHabitat("humedal")
-       self.setNombre(nombre)
-       self.setEdad(edad)
-       self.setGenero(genero)
-       self.setZona(zona)
+       iguana = Reptil(nombre, edad, "humedal", genero, zona, "verde", 3 )
        Reptil.iguanas += 1
+       Animal.totalAnimales("Reptiles")
+       return iguana
 
-    def crearSalamandra(self, nombre, edad, genero, zona):
-       self.setColorEscamas("blanco")
-       self.setLargoCola(1)
-       self.setHabitat("jungla")
-       self.setNombre(nombre)
-       self.setEdad(edad)
-       self.setGenero(genero)
-       self.setZona(zona)
+    def crearSerpiente(self, nombre, edad, genero, zona):
+       serpiente = Reptil(nombre, edad, "jungla", genero, zona, "blanco", 1 )
+       Animal.totalAnimales("Reptiles")
        Reptil.serpientes += 1
+       return serpiente
        
     def movimiento(self):
         return "reptar"

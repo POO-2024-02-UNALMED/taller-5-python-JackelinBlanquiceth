@@ -14,6 +14,13 @@ class Pez(Animal):
     def setColorEscamas(self, color):
         self._colorEscamas = color
 
+    def getListado(self):
+        return self._listado
+
+    def setListado(self, peces):
+        if isinstance(peces, Pez):
+            self._listado.append(peces)    
+
     def getCantidadAletas(self):
         return self._cantidadAletas
     
@@ -27,22 +34,13 @@ class Pez(Animal):
         return "nadar"
     
     def crearSalmon(self, nombre, edad, genero, zona):
-        self.setColorEscamas("rojo")
-        self.setCantidadAletas(6)
-        self.setHabitat("océano")
-        self.setNombre(nombre)
-        self.setEdad(edad)
-        self.setGenero(genero)
-        self.setZona(zona)
+        salmon = Pez(nombre, edad,"océano", genero, zona, "rojo", 6)
+        Animal.totalAnimales("Peces")
         Pez.salmones += 1
+        return salmon
     
     def crearBacalao(self, nombre, edad, genero, zona):
-        self.setColorEscamas("gris")
-        self.setCantidadAletas(6)
-        self.setHabitat("océano")
-        self.setNombre(nombre)
-        self.setEdad(edad)
-        self.setGenero(genero)
-        self.setZona(zona)
+        bacalao = Pez(nombre, edad,"océano", genero, zona, "gris", 6)
         Pez.bacalaos += 1
+        return bacalao
 

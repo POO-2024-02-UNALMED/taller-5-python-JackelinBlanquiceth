@@ -11,8 +11,9 @@ class Anfibio(Animal):
     def getListado(self):
        return self._listado
     
-    def setListado(self, Anfibio):
-       self._listado.append(Anfibio)
+    def setListado(self, anfibio):
+       if isinstance(anfibio, Anfibio):
+            self._listado.append(anfibio) 
 
     def getColorPiel(self):
        return self._colorPiel
@@ -30,24 +31,16 @@ class Anfibio(Animal):
        return (Anfibio.ranas + Anfibio.salamandras)
     
     def crearRana(self, nombre, edad, genero, zona):
-       self.setColorPiel("rojo")
-       self.setVenenoso(True)
-       self.setHabitat("selva")
-       self.setNombre(nombre)
-       self.setEdad(edad)
-       self.setGenero(genero)
-       self.setZona(zona)
+       rana = Anfibio(nombre, edad, "selva", genero, zona, "rojo", True)
        Anfibio.ranas += 1
+       Animal.totalAnimales("Anfibios")
+       return rana
 
     def crearSalamandra(self, nombre, edad, genero, zona):
-       self.setColorPiel("negro y amarillo")
-       self.setVenenoso(False)
-       self.setHabitat("selva")
-       self.setNombre(nombre)
-       self.setEdad(edad)
-       self.setGenero(genero)
-       self.setZona(zona)
+       salamandra = Anfibio(nombre, edad, "selva", genero, zona, "negro y amarillo", False)
        Anfibio.salamandras += 1
+       Animal.totalAnimales("Anfibios")
+       return salamandra
        
     def movimiento(self):
         return "saltar"
