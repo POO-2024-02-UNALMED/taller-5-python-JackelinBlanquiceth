@@ -1,4 +1,4 @@
-from animal import Animal
+from  zooAnimales.animal import Animal
 class Mamifero(Animal):
     caballos = 0
     leones = 0
@@ -13,8 +13,7 @@ class Mamifero(Animal):
        return self._listado
     
     def setListado(self, mamifero):
-       if isinstance(mamifero, Mamifero):
-          self._listado.append(mamifero)
+       self._listado = mamifero
 
     def getPelaje(self):
        return self._pelaje
