@@ -2,9 +2,10 @@ from animal import Animal
 class Mamifero(Animal):
     caballos = 0
     leones = 0
+    _listado = []
     def __init__(self,nombre, edad, habitat, genero, zona, pelaje, patas):
         super().__init__(nombre, edad, habitat, genero, zona)
-        self._listado = []
+        Mamifero._listado.append(self)
         self._pelaje = pelaje
         self._patas = patas
 
@@ -26,19 +27,17 @@ class Mamifero(Animal):
     
     def setPatas(self, patas):
        self._patas = patas
-
-    def cantidadAnfibios(self):
-       return (Mamifero.caballos + Mamifero.leones)
-    
-    def crearCaballo(self, nombre, edad, genero, zona):
+    @classmethod
+    def cantidadMamiferos(cls):
+       return len(cls._listado)
+    @classmethod
+    def crearCaballo(cls, nombre, edad, genero, zona):
        caballo = Mamifero(nombre, edad, "pradera", genero, zona, True, 4)
        Mamifero.caballos += 1
-       Animal.totalAnimales("Mamiferos")
        return caballo
-
-    def crearLeon(self, nombre, edad, genero, zona):
+    @classmethod
+    def crearLeon(cls, nombre, edad, genero, zona):
        leon = Mamifero(nombre, edad, "selva", genero, zona, True, 4)
        Mamifero.leones += 1
-       Animal.totalAnimales("Mamiferos")
        return leon
        

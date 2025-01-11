@@ -2,9 +2,10 @@ from animal import Animal
 class Pez(Animal):
     salmones = 0
     bacalaos = 0
+    _listado = []
     def __init__(self, nombre, edad, habitat, genero, zona, colorEscamas, cantidadAletas):
         super().__init__(nombre, edad, habitat, genero, zona)
-        self._listado = []
+        Pez._listado.append(self)
         self._colorEscamas = colorEscamas
         self._cantidadAletas = cantidadAletas
 
@@ -26,20 +27,19 @@ class Pez(Animal):
     
     def setCantidadAletas(self, cantidad):
         self._cantidadAletas = cantidad
-
-    def cantidadPeces(self):
-        return (Pez.salmones + Pez.bacalaos)
+    @classmethod
+    def cantidadPeces(cls):
+        return len(cls._listado)
     
     def movimiento(self):
         return "nadar"
-    
-    def crearSalmon(self, nombre, edad, genero, zona):
+    @classmethod
+    def crearSalmon(cls, nombre, edad, genero, zona):
         salmon = Pez(nombre, edad,"océano", genero, zona, "rojo", 6)
-        Animal.totalAnimales("Peces")
         Pez.salmones += 1
         return salmon
-    
-    def crearBacalao(self, nombre, edad, genero, zona):
+    @classmethod
+    def crearBacalao(cls, nombre, edad, genero, zona):
         bacalao = Pez(nombre, edad,"océano", genero, zona, "gris", 6)
         Pez.bacalaos += 1
         return bacalao

@@ -1,19 +1,21 @@
 class Animal:
-    _totalAnimales = {"Mamiferos":0, "Aves":0, "Reptiles":0, "Peces":0, "Anfibios":0}
+    _totalAnimales = 0
     def __init__(self, nombre, edad, habitat, genero, zona):
         self._nombre = nombre
         self._edad = edad
         self._habitat = habitat
         self._genero = genero
         self._zona = zona
-
-    @classmethod
-    def totalAnimales(cls, clave):
-        if clave in cls._totalAnimales:
-            cls._totalAnimales[clave] += 1    
-    @classmethod
+        Animal._totalAnimales +=1
+   
     def totalPorTipo(cls):
-        return cls._totalAnimales
+        from zooAnimales.mamifero import Mamifero
+        from zooAnimales.anfibio import Anfibio
+        from zooAnimales.reptil import Reptil
+        from zooAnimales.pez import Pez
+        from zooAnimales.ave import Ave
+        return "Mamiferos : " + str(Mamifero.cantidadMamiferos()) + "\n" + "Aves : " + str(Ave.cantidadAves()) + "\n" + "Reptiles : " + str(Reptil.cantidadReptiles()) + "\n" + "Peces : " + str(Pez.cantidadPeces()) + "\n" +"Anfibios : " + str(Anfibio.cantidadAnfibios())
+        return
     
     def movimiento(self):
         return "desplazarse"
