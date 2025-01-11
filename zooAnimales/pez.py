@@ -19,8 +19,7 @@ class Pez(Animal):
         return self._listado
 
     def setListado(self, peces):
-        if isinstance(peces, Pez):
-            self._listado.append(peces)    
+        self._listado = peces    
 
     def getCantidadAletas(self):
         return self._cantidadAletas
@@ -34,13 +33,13 @@ class Pez(Animal):
     def movimiento(self):
         return "nadar"
     @classmethod
-    def crearSalmon(cls, nombre, edad, genero, zona):
-        salmon = Pez(nombre, edad,"océano", genero, zona, "rojo", 6)
+    def crearSalmon(cls, nombre, edad, genero):
         Pez.salmones += 1
+        salmon = Pez(nombre, edad,"océano", genero, "rojo", 6)
         return salmon
     @classmethod
-    def crearBacalao(cls, nombre, edad, genero, zona):
-        bacalao = Pez(nombre, edad,"océano", genero, zona, "gris", 6)
+    def crearBacalao(cls, nombre, edad, genero):
         Pez.bacalaos += 1
+        bacalao = Pez(nombre, edad,"océano", genero, "gris", 6)
         return bacalao
 

@@ -1,4 +1,5 @@
-class Zona:
+class Zona():
+
     def __init__(self, nombre, zoo):
         self._nombre = nombre
         self._zoo = zoo
@@ -16,5 +17,3 @@ class Zona:
         return self._zoo    
     def setZoo(self, zoo):
         self._zoo = zoo    
-    def getAnimales(self):
-        return self._animales
