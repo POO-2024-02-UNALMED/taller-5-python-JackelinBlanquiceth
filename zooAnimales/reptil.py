@@ -3,17 +3,17 @@ class Reptil(Animal):
    iguanas = 0
    serpientes = 0
    _listado = []
-   def __init__(self,nombre, edad, habitat, genero, colorEscamas, largoCola):
+   def __init__(self,nombre=None, edad=None, habitat=None, genero=None, colorEscamas=None, largoCola=None):
       super().__init__(nombre, edad, habitat, genero)
       self._colorEscamas = colorEscamas
       Reptil._listado.append(self)
       self._largoCola = largoCola
-
-   def getListado(self):
-      return self._listado
-   
-   def setListado(self, reptil):
-      self._listado = reptil 
+   @classmethod
+   def getListado(cls):
+      return cls._listado
+   @classmethod
+   def setListado(cls, reptil):
+      cls._listado.append(reptil) 
 
    def getColorEscamas(self):
       return self._colorEscamas
@@ -39,6 +39,9 @@ class Reptil(Animal):
       Reptil.serpientes += 1
       serpiente = Reptil(nombre, edad, "jungla", genero, "blanco", 1 )
       return serpiente
-      
-   def movimiento(self):
+   @staticmethod  
+   def movimiento():
       return "reptar"
+   def toString(self):
+      return f"Mi nombre es {self.getNombre}, tengo una edad de {self.getEdad}, habito en {self.getHabitat} y mi genero es\
+         {self.getGenero}"

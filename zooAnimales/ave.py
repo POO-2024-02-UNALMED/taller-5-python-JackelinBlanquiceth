@@ -4,16 +4,17 @@ class Ave(Animal):
    halcones = 0
    aguilas = 0
    _listado = []
-   def __init__(self,nombre, edad, habitat, genero, colorPlumas):
+   def __init__(self,nombre=None, edad=None, habitat=None, genero=None, colorPlumas=None):
       super().__init__(nombre, edad, habitat, genero)
       Ave._listado.append(self)
       self._colorPlumas = colorPlumas
-
-   def getListado(self):
-      return self._listado
+   @classmethod
+   def getListado(cls):
+      return cls._listado
    
-   def setListado(self, ave):
-      self._listado = ave
+   @classmethod
+   def setListado(cls, ave):
+      cls._listado.append(ave)
 
    def getColorPlumas(self):
       return self._colorPlumas
@@ -34,6 +35,10 @@ class Ave(Animal):
       Ave.aguilas += 1
       aguila = Ave(nombre, edad, "montanas", genero, "blanco y amarillo")
       return aguila
-      
-   def movimiento(self):
+   @staticmethod  
+   def movimiento():
       return "volar"
+   
+   def toString(self):
+      return f"Mi nombre es {self.getNombre}, tengo una edad de {self.getEdad}, habito en {self.getHabitat} y mi genero es\
+         {self.getGenero}"
