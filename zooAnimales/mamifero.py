@@ -4,12 +4,11 @@ class Mamifero(Animal):
    _listado = []
    caballos = 0
    leones = 0
-   
-   def __init__(self,nombre, edad, habitat, genero, pelaje=None, patas=None):
+   def __init__(self, nombre, edad, habitat, genero, pelaje =None, patas =None):
       super().__init__(nombre, edad, habitat, genero)
       Mamifero._listado.append(self)
-      self._pelaje = pelaje
-      self._patas = patas
+      self._pelaje =pelaje
+      self._patas =patas
 
    @classmethod
    def getListado(cls):
@@ -17,6 +16,7 @@ class Mamifero(Animal):
    @classmethod
    def setListado(self, mamifero):
       self._listado.append(mamifero)
+      
    def isPelaje(self):
       return self._pelaje   
    def setPelaje(self, pelaje):
