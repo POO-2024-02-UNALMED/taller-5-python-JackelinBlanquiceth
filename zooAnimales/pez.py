@@ -43,6 +43,9 @@ class Pez(Animal):
         bacalao = Pez(nombre, edad,"oceano", genero, "gris", 6)
         return bacalao
     def toString(self):
-      return f"Mi nombre es {self.getNombre}, tengo una edad de {self.getEdad}, habito en {self.getHabitat} y mi genero es\
-         {self.getGenero}"
+        return (
+            f"Mi nombre es {self.getNombre()}, tengo una edad de {self.getEdad()}, "
+            f"habito en {self.getHabitat()} y mi genero es {self.getGenero()}"
+        )
+
 

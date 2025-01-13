@@ -23,12 +23,14 @@ class Reptil(Animal):
         Reptil.serpientes +=1
         serp = Reptil(nombre, edad, "jungla", genero, "blanco", 1)
         return serp
-    def novimiento(self):
-        return "resptar"
-    def getListado(self):
-        return self._listado
-    def setListado(self, list):
-        self._listado = list
+    def movimiento(self):
+        return "reptar"
+    @classmethod
+    def getListado(cls):
+        return cls._listado
+    @classmethod
+    def setListado(cls, reptil):
+        cls._listado = reptil
     def getColorEscamas(self):
         return self._colorEscamas
     def setColorEscamas(self, colEs):
@@ -37,3 +39,8 @@ class Reptil(Animal):
         return self._largoCola
     def setLargoCola(self, larCol):
         self._largoCola =larCol
+    def toString(self):
+        return (
+            f"Mi nombre es {self.getNombre()}, tengo una edad de {self.getEdad()}, "
+            f"habito en {self.getHabitat()} y mi genero es {self.getGenero()}"
+        )
