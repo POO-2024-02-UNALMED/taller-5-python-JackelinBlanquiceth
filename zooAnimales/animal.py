@@ -9,7 +9,7 @@ class Animal:
         self._zona = zona
         Animal._totalAnimales += 1
 
-    def totalPorTipo(self):
+    def totalPorTipo():
         from zooAnimales.ave import Ave
         from zooAnimales.anfibio import Anfibio
         from zooAnimales.mamifero import Mamifero

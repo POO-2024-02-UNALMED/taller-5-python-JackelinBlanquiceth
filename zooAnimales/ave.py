@@ -40,6 +40,3 @@ class Ave(Animal):
    def movimiento():
       return "volar"
    
-   def toString(self):
-      return f"Mi nombre es {self.getNombre}, tengo una edad de {self.getEdad}, habito en {self.getHabitat} y mi genero es\
-         {self.getGenero}"
