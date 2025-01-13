@@ -24,5 +24,9 @@ class Zoologico():
         for zona in self._zonas:
             cantidadTotal += zona.cantidadAnimales()
         return cantidadTotal
-
+    def toString(self):
+        return (
+            f"Mi nombre es {self.getNombre()}, tengo una edad de {self.getEdad()}, "
+            f"habito en {self.getHabitat()} y mi genero es {self.getGenero()}"
+        )
 

@@ -17,4 +17,9 @@ class Zona():
         self._animales.append(animal)
     def cantidadAnimales(self):
         return len(self._animales)
+    def toString(self):
+        return (
+            f"Mi nombre es {self.getNombre()}, tengo una edad de {self.getEdad()}, "
+            f"habito en {self.getHabitat()} y mi genero es {self.getGenero()}"
+        )
     
