@@ -12,8 +12,8 @@ class Mamifero(Animal):
       self._patas = patas
 
    @classmethod
-   def getListado(self):
-      return self._listado   
+   def getListado(cls):
+      return cls._listado   
    @classmethod
    def setListado(self, mamifero):
       self._listado.append(mamifero)

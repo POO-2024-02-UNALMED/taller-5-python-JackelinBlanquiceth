@@ -1,11 +1,10 @@
-from animal import Animal
+from zooAnimales.animal import Animal
 class Pez(Animal):
-    _listado = []
     salmones = 0
     bacalaos = 0
-    
-    def __init__(self, nombre, edad, habitat, genero, colorEscamas=None, cantidadAletas=None):
-        super().__init__(nombre, edad, habitat, genero)
+    _listado = []
+    def __init__(self, nombre=None, edad=None, habitat=None, genero=None, zona=None, colorEscamas=None, cantidadAletas=None):
+        super().__init__(nombre, edad, habitat, genero, zona)
         Pez._listado.append(self)
         self._colorEscamas = colorEscamas
         self._cantidadAletas = cantidadAletas
@@ -19,8 +18,8 @@ class Pez(Animal):
     def getListado(cls):
         return cls._listado
     @classmethod
-    def setListado(cls, peces):
-        cls._listado = peces    
+    def setListado(self, peces):
+        self._listado = peces    
 
     def getCantidadAletas(self):
         return self._cantidadAletas
@@ -36,12 +35,12 @@ class Pez(Animal):
     @classmethod
     def crearSalmon(cls, nombre, edad, genero):
         Pez.salmones += 1
-        salmon = Pez(nombre, edad,"océano", genero, "rojo", 6)
+        salmon = Pez(nombre, edad,"oceano", genero, "rojo", 6)
         return salmon
     @classmethod
     def crearBacalao(cls, nombre, edad, genero):
         Pez.bacalaos += 1
-        bacalao = Pez(nombre, edad,"océano", genero, "gris", 6)
+        bacalao = Pez(nombre, edad,"oceano", genero, "gris", 6)
         return bacalao
     def toString(self):
       return f"Mi nombre es {self.getNombre}, tengo una edad de {self.getEdad}, habito en {self.getHabitat} y mi genero es\
