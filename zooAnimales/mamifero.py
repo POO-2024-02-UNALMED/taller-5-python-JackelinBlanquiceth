@@ -17,9 +17,9 @@ class Mamifero(Animal):
    @classmethod
    def setListado(self, mamifero):
       self._listado.append(mamifero)
-   def getPelaje(self):
+   def isPelaje(self):
       return self._pelaje   
-   def isPelaje(self, pelaje):
+   def setPelaje(self, pelaje):
       self._pelaje = pelaje
    def getPatas(self):
       return self._patas    
