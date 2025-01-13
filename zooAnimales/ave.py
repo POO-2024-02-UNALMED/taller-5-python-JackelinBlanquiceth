@@ -33,7 +33,7 @@ class Ave(Animal):
    @classmethod
    def crearAguila(cls, nombre, edad, genero):
       Ave.aguilas += 1
-      aguila = Ave(nombre, edad, "montanas", genero, "blanco y amarillo")
+      aguila = Ave(nombre, edad, "montañas", genero, "blanco y amarillo")
       return aguila
    @staticmethod  
    def movimiento():
