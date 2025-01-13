@@ -8,7 +8,6 @@ class Animal():
         self._genero = genero
         self._zona = zona
         Animal._totalAnimales += 1
-
     def totalPorTipo():
         from zooAnimales.ave import Ave
         from zooAnimales.anfibio import Anfibio
@@ -17,12 +16,12 @@ class Animal():
         from zooAnimales.reptil import Reptil
 
         return (
-            "Mamiferos : " + str(Mamifero.cantidadMamiferos()) + "\n"
-            + "Aves : " + str(Ave.cantidadAves()) + "\n"
-            + "Reptiles : " + str(Reptil.cantidadReptiles()) + "\n"
-            + "Peces : " + str(Pez.cantidadPeces()) + "\n"
-            + "Anfibios : " + str(Anfibio.cantidadAnfibios())
-        )
+        f"Mamiferos : {Mamifero.cantidadMamiferos()}\n"
+        f"Aves : {Ave.cantidadAves()}\n"
+        f"Reptiles : {Reptil.cantidadReptiles()}\n"
+        f"Peces : {Pez.cantidadPeces()}\n"
+        f"Anfibios : {Anfibio.cantidadAnfibios()}"
+    )
 
     def toString(self):
         if self._zona is None:
