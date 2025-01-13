@@ -25,17 +25,16 @@ class Animal():
     )
 
     def toString(self):
+      
         if self._zona is None:
-            return (
-                f"Mi nombre es {self.getNombre()}, tengo una edad de {self.getEdad()}, "
+            return f"Mi nombre es {self.getNombre()}, tengo una edad de {self.getEdad()}, " \
                 f"habito en {self.getHabitat()} y mi genero es {self.getGenero()}"
-            )
+    
         else:
-            return (
-                f"Mi nombre es {self.getNombre()}, tengo una edad de {self.getEdad()}, "
-                f"habito en {self.getHabitat()} y mi genero es {self.getGenero()}, "
+            return f"Mi nombre es {self.getNombre()}, tengo una edad de {self.getEdad()}, " \
+                f"habito en {self.getHabitat()} y mi genero es {self.getGenero()}, " \
                 f"la zona en la que me ubico es {self.getZona().getNombre()}, en el {self.getZona().getZoo().getNombre()}"
-            )
+
 
 
     @staticmethod
