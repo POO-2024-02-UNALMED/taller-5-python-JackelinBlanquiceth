@@ -37,7 +37,6 @@ class Animal():
 
 
 
-    @staticmethod
     def movimiento():
         return "desplazarse"
 

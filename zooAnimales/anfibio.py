@@ -47,7 +47,6 @@ class Anfibio(Animal):
         salamandra = Anfibio(nombre, edad, "selva", genero, "negro y amarillo", False)
         return salamandra
 
-    @staticmethod
     def movimiento():
         return "saltar"
 
